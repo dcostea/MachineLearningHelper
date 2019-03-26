@@ -94,19 +94,12 @@ namespace MachineLearningHelper
         /// <param name="showLegend">Show legend.</param>
         public static void ToConsole(this Matrix<double> matrix, bool showLegend = false)
         {
-            Write("C-MATRIX");
-
-            for (int i = 0; i < Header.Length - 1; i++)
-            {
-                Write($"{Header[i].Substring(0, Math.Min(Header[i].Length, 8)),8}");
-            }
-
             for (int i = 0; i < matrix.ColumnCount; i++)
             {
                 WriteLine();
                 Write($"{Header[i].Substring(0, Math.Min(Header[i].Length, 8)),8}");
 
-                for (int j = 0; j < matrix.RowCount; j++)
+                for (int j = 0; j < i + 1; j++)
                 {
                     switch (matrix[i, j])
                     {
@@ -158,13 +151,20 @@ namespace MachineLearningHelper
 
                     if (i == j)
                     {
-                        ForegroundColor = ConsoleColor.DarkGray;
+                        ForegroundColor = ConsoleColor.Gray;
                         BackgroundColor = ConsoleColor.DarkGray;
                     }
 
                     Write($"{matrix[i, j],8:F2}");
                     ResetColor();
                 }
+            }
+
+            Write(Environment.NewLine + "C-MATRIX");
+
+            for (int i = 0; i < Header.Length - 1; i++)
+            {
+                Write($"{Header[i].Substring(0, Math.Min(Header[i].Length, 8)),8}");
             }
 
             WriteLine();
@@ -203,8 +203,6 @@ namespace MachineLearningHelper
                 ResetColor();
                 WriteLine(" 0.8 : 1.0");
             }
-
-            WriteLine();
         }
     }
 }
