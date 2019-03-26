@@ -39,20 +39,25 @@ MachineLearningHelper.FetchRecords<Record>("sample.csv").CorrelationMatrix().ToC
 ```
 where Record is a class for csv deserialization
 
-    class Record
-    {
-        public double Lux { get; set; }
-        public double Temp { get; set; }
-        public double Infra { get; set; }
-        public double Dist { get; set; }
-        public string State { get; set; }
-    }
+```sh
+class Record
+{
+    public double Lux { get; set; }
+    public double Temp { get; set; }
+    public double Infra { get; set; }
+    public double Dist { get; set; }
+    public string State { get; set; }
+}
+```
     
 and csv file looks like
 
+```sh
 Lux,Temp,Infra,Dist,State
 32.5,7.71,0,400,time
 33.82,7.32,0,100,lighter
 34.82,7.71,0,100,infra
 32.02,7.91,0,400,infra
 32.82,7.52,0,400,time
+```
+
