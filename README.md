@@ -1,32 +1,42 @@
 # MachineLearningHelper
 
-Description
+### Description
 
-A correlation matrix is a table showing correlation coefficients between variables. Each cell in the table shows the correlation between two variables. A correlation matrix is used as a way to summarize data, as an input into a more advanced analysis, and as a diagnostic for advanced analyses.
+> A correlation matrix is a table showing correlation coefficients between variables.
+> Each cell in the table shows the correlation between two variables.
+> A correlation matrix is used as a way to summarize data, as an input into a more advanced analysis, and as a diagnostic for advanced analyses.
 
-Dependencies
+### Dependencies
 
 MathNet.Numerics nuget package.
 CsvHelper nuget package.
 
-How to use:
+### How to use
 
 Load data from csv file.
+```
 double[][] data = MachineLearningHelper.FetchRecords<T>("path/to/csv/file");
+```
 
 Calculate correlation matrix.
+```sh
 MathNet.Numerics.LinearAlgebra.Matrix<double> matrix = data.CorrelationMatrix();
+```
 
 Print to console the correlation matrix.
+```sh
 matrix.ToConsole();
+```
 
 Compact form.
+```sh
 MachineLearningHelper.FetchRecords<T>("path/to/csv/file").CorrelationMatrix().ToConsole();
+```
 
-Example of use
-
+### Example of use
+```sh
 MachineLearningHelper.FetchRecords<Record>("sample.csv").CorrelationMatrix().ToConsole();
-
+```
 where Record is a class for csv deserialization
 
     class Record
