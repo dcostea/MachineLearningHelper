@@ -62,4 +62,4 @@ Lux,Temp,Infra,Dist,State
 ```
 
 ### ToDos
-Exmplain optional params
+Explain optional params.
